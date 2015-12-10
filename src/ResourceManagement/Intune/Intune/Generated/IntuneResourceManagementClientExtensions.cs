@@ -494,6 +494,175 @@ namespace Microsoft.Azure.Management.Intune
             }
 
             /// <summary>
+            /// Returns Intune Service Principal Policies.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='filter'>
+            /// The filter to apply on the operation.
+            /// </param>
+            /// <param name='top'>
+            /// </param>
+            /// <param name='select'>
+            /// select specific fields in entity.
+            /// </param>
+            public static IPage<ServicePrincipalPolicy> GetMAMServicePrincipalPolicies(this IIntuneResourceManagementClient operations, string hostName, string filter = default(string), int? top = default(int?), string select = default(string))
+            {
+                return Task.Factory.StartNew(s => ((IIntuneResourceManagementClient)s).GetMAMServicePrincipalPoliciesAsync(hostName, filter, top, select), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns Intune Service Principal Policies.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='filter'>
+            /// The filter to apply on the operation.
+            /// </param>
+            /// <param name='top'>
+            /// </param>
+            /// <param name='select'>
+            /// select specific fields in entity.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IPage<ServicePrincipalPolicy>> GetMAMServicePrincipalPoliciesAsync( this IIntuneResourceManagementClient operations, string hostName, string filter = default(string), int? top = default(int?), string select = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                AzureOperationResponse<IPage<ServicePrincipalPolicy>> result = await operations.GetMAMServicePrincipalPoliciesWithHttpMessagesAsync(hostName, filter, top, select, null, cancellationToken).ConfigureAwait(false);
+                return result.Body;
+            }
+
+            /// <summary>
+            /// Returns the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            /// <param name='select'>
+            /// select specific fields in entity.
+            /// </param>
+            public static ServicePrincipalPolicy GetMAMServicePrincipalPolicy(this IIntuneResourceManagementClient operations, string hostName, object policyName, string select = default(string))
+            {
+                return Task.Factory.StartNew(s => ((IIntuneResourceManagementClient)s).GetMAMServicePrincipalPolicyAsync(hostName, policyName, select), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            /// <param name='select'>
+            /// select specific fields in entity.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ServicePrincipalPolicy> GetMAMServicePrincipalPolicyAsync( this IIntuneResourceManagementClient operations, string hostName, object policyName, string select = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                AzureOperationResponse<ServicePrincipalPolicy> result = await operations.GetMAMServicePrincipalPolicyWithHttpMessagesAsync(hostName, policyName, select, null, cancellationToken).ConfigureAwait(false);
+                return result.Body;
+            }
+
+            /// <summary>
+            /// Creates or updates the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to the create or update MAMSharePointOnline Service
+            /// Principal Policy operation.
+            /// </param>
+            public static ServicePrincipalPolicy CreateOrUpdateMAMServicePrincipalPolicy(this IIntuneResourceManagementClient operations, string hostName, object policyName, ServicePrincipalPolicy parameters)
+            {
+                return Task.Factory.StartNew(s => ((IIntuneResourceManagementClient)s).CreateOrUpdateMAMServicePrincipalPolicyAsync(hostName, policyName, parameters), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Creates or updates the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            /// <param name='parameters'>
+            /// Parameters supplied to the create or update MAMSharePointOnline Service
+            /// Principal Policy operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ServicePrincipalPolicy> CreateOrUpdateMAMServicePrincipalPolicyAsync( this IIntuneResourceManagementClient operations, string hostName, object policyName, ServicePrincipalPolicy parameters, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                AzureOperationResponse<ServicePrincipalPolicy> result = await operations.CreateOrUpdateMAMServicePrincipalPolicyWithHttpMessagesAsync(hostName, policyName, parameters, null, cancellationToken).ConfigureAwait(false);
+                return result.Body;
+            }
+
+            /// <summary>
+            /// Delete the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            public static void DeleteMAMServicePrincipalPolicy(this IIntuneResourceManagementClient operations, string hostName, object policyName)
+            {
+                Task.Factory.StartNew(s => ((IIntuneResourceManagementClient)s).DeleteMAMServicePrincipalPolicyAsync(hostName, policyName), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Delete the MAM Service Principal Policy with given name.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='hostName'>
+            /// Location hostName for the tenant
+            /// </param>
+            /// <param name='policyName'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task DeleteMAMServicePrincipalPolicyAsync( this IIntuneResourceManagementClient operations, string hostName, object policyName, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                await operations.DeleteMAMServicePrincipalPolicyWithHttpMessagesAsync(hostName, policyName, null, cancellationToken).ConfigureAwait(false);
+            }
+
+            /// <summary>
             /// Returns location for user tenant.
             /// </summary>
             /// <param name='operations'>
@@ -714,6 +883,38 @@ namespace Microsoft.Azure.Management.Intune
             public static async Task<IPage<FlaggedEnrolledApp>> GetMAMUserFlaggedEnrolledAppsNextAsync( this IIntuneResourceManagementClient operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
             {
                 AzureOperationResponse<IPage<FlaggedEnrolledApp>> result = await operations.GetMAMUserFlaggedEnrolledAppsNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false);
+                return result.Body;
+            }
+
+            /// <summary>
+            /// Returns Intune Service Principal Policies.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='nextPageLink'>
+            /// The NextLink from the previous successful call to List operation.
+            /// </param>
+            public static IPage<ServicePrincipalPolicy> GetMAMServicePrincipalPoliciesNext(this IIntuneResourceManagementClient operations, string nextPageLink)
+            {
+                return Task.Factory.StartNew(s => ((IIntuneResourceManagementClient)s).GetMAMServicePrincipalPoliciesNextAsync(nextPageLink), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <summary>
+            /// Returns Intune Service Principal Policies.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='nextPageLink'>
+            /// The NextLink from the previous successful call to List operation.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IPage<ServicePrincipalPolicy>> GetMAMServicePrincipalPoliciesNextAsync( this IIntuneResourceManagementClient operations, string nextPageLink, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                AzureOperationResponse<IPage<ServicePrincipalPolicy>> result = await operations.GetMAMServicePrincipalPoliciesNextWithHttpMessagesAsync(nextPageLink, null, cancellationToken).ConfigureAwait(false);
                 return result.Body;
             }
 
